@@ -46,11 +46,12 @@ var paramtest = function paramtest() {
     console.log("back from paramtest")
 }
 
-$('#b').click(function() {
-    var input = $("#data");
-    var d = unupt.val();
-    input.val("");
-    $.getJSON("/upcase", {data:d}, function() {
-	
-    });
+$("#b").click(function(){
+		var input = $("#data");
+		var d = input.val();
+		input.val("");
+		$.getJSON("/upcase",{data:d},function(d){
+				$("#result").text(d.result);
+				$("#thelist").append($("<li>"+d.result+"</li>"));
+		});
 });
